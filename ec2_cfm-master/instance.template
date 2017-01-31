@@ -6,7 +6,7 @@
     "InstanceType" : {
       "Description" : "EC2 instance type",
       "Type" : "String",
-      "Default" : "t2.medium",
+      "Default" : "t2.micro",
       "AllowedValues" : [ "t1.micro", "t2.micro", "t2.small", "t2.medium", "m1.small", "m1.medium", "m1.large", "m1.xlarge"],
       "ConstraintDescription" : "must be a valid EC2 instance type."
     },
@@ -18,34 +18,33 @@
     "Subnet": {
       "Description" : "Subnet ID",
       "Type" : "String",
-      "Default" : "subnet-18529733",
+      "Default" : "subnet-9bd92fd2",
       "ConstraintDescription" : "must be the id of an existing Subnet."
     },
     "SecurityGroupID": {
       "Description" : "SecurityGroup IDs",
       "Type" : "String",
-      "Default" : "sg-e700f183",
+      "Default" : "sg-bd67e4c5",
       "ConstraintDescription" : "must be the id of an existing SG."
     },
     "PrivateIP": {
       "Description" : "DevPrivateIPs",
       "Type" : "String",
-      "Default" : "172.16.16.16",
+      "Default" : "172.31.38.119",
       "ConstraintDescription" : "must be a valid private IP in the subnet"
     },
     "PuppetMaster": {
       "Description" : "Puppet Master",
       "Type" : "String",
-      "Default" : "ip-172-31-27-232.ec2.internal",
+      "Default" : "ip-172-31-38-118.us-west-2.compute.internal",
       "ConstraintDescription" : "must be a valid DNS of puppet server"
     }
   },
-  
   "Resources" : {
      "MyEC2Instance" : {
          "Type" : "AWS::EC2::Instance",
          "Properties" : {
-            "ImageId" : "ami-10761778",
+            "ImageId" : "ami-b7a114d7",
             "SubnetId" : { "Ref" : "Subnet" },
             "InstanceType" : { "Ref" : "InstanceType" },
             "SecurityGroupIds" : [ { "Ref" : "SecurityGroupID" } ],
